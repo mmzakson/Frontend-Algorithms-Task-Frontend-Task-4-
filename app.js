@@ -1,18 +1,26 @@
 // convertFahrToCelsius
 function convertFahrToCelsius(val) {
-    if (isNaN(val) && (typeof val !== 'string')) {
-        console.log(`${val} is not a valid number but a/an ${typeof val} type`)
+    let fahren = val;
+    // console.log(fahren);
+    if (isNaN(fahren) && (typeof fahren !== 'string')) {
+        return (`${fahren} is not a valid number but a/an ${typeof fahren} type`)
     } else {
-        return (val - 32) * (5/9);
+        return (fahren - 32) * (5/9);
     }
 }
 
-console.log(convertFahrToCelsius(44));
+console.log(convertFahrToCelsius(0));
+console.log(convertFahrToCelsius("0"));
+console.log(convertFahrToCelsius([1,2,3]));
+console.log(convertFahrToCelsius({temp: 0}));
 
 
 // checkYuGiOh
 function checkYuGiOh(num) {
     const yuGiOhArr = [];
+    if (isNaN(num)) {
+        return (`Invalid parameter: ${num}`);
+    }
     for (let i = 1; i <= num; i++) {
         if((i%2 === 0) && (i%3 === 0) && (i%5 === 0)) {
             yuGiOhArr.push("yu-gi-oh")
@@ -34,3 +42,6 @@ function checkYuGiOh(num) {
 }
 
 console.log(checkYuGiOh(30))
+console.log(checkYuGiOh(10))
+console.log(checkYuGiOh("5"))
+console.log(checkYuGiOh("fizzbuzz is meh"))
